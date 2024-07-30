@@ -1,10 +1,14 @@
+html
+{
+    scroll-behavior: smooth;
+}
 body
 {
     background-color: rgb(15, 15, 15);
     color: white;
     margin:0px;
     font-family: sans-serif;
-    scroll-behavior: smooth;
+    /*scroll-behavior: smooth;*/
     
 }
 .headings
