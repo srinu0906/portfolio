@@ -130,6 +130,34 @@ div{
     margin-top: 100px;
     margin-bottom: 100px;
 }
+.profiles img
+{
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.profiles , .profiles section
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 5px;
+    border: 1px solid  rgb(15, 15, 15);;
+}
+.profiles section:hover
+{
+    border:1px solid #ffffff65;
+    box-shadow: 2px 2px #ffffff65;
+    border-radius: 100px;
+}
+.profiles a
+{
+    text-decoration: none;
+    color: white;
+}
 
 /*skills*/
 .my-skills
