@@ -1,5 +1,5 @@
-const is_portrait = window.matchMedia("(orientation:portrait)").matches.
-if(is_portrait)
+const isPortrait = window.matchMedia("(orientation:portrait)").matches;
+if(isPortrait)
 {
-    alert ("Please view this page in Landscape orientation for optimal experience");
+  alert("Please view this page in landscape orientation for optimal experience ");
 }
