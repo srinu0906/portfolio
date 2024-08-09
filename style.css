@@ -145,7 +145,7 @@ div{
     flex-direction: row;
     justify-content: space-evenly;
     padding: 5px;
-    border: 1px solid  rgb(15, 15, 15);;
+    border: 1px solid  rgb(15, 15, 15);
 }
 .profiles section:hover
 {
@@ -184,7 +184,7 @@ div{
 .my-skills:hover
 {
     transform: scale(1.1);
-    box-shadow: 4px 4px wheat;
+    box-shadow: 4px 4px 20px wheat;
 }
 #javascript img, #dsa img
 {
@@ -213,7 +213,7 @@ div{
     margin: 50px;
     border-radius: 10px;
     border: 2px solid white;
-    transition: width 0.5s;
+    transition: transform 0.5s ease;
     align-content: end;
 }
 #landing-page
@@ -265,7 +265,7 @@ div{
 
 .my-projects:hover
 {
-    width:600px;
+    box-shadow: 2px 2px 400px rgba(0,0,0,0.5);
 }
 
 /*resume*/
