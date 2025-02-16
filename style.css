@@ -216,6 +216,16 @@ div{
     transition: transform 0.5s ease;
     align-content: end;
 }
+#csp
+{
+    background: url("images/csp.png") no-repeat center center;
+    background-size: cover;
+}
+#bingo
+{
+    background: url("images/bingo.png") no-repeat center center;
+    background-size: cover;
+}
 #landing-page
 {
     background: url("images/landing-page.png") no-repeat center center;
@@ -262,12 +272,19 @@ div{
     text-decoration: none;
     color: white;
 }
-
+/*
 .my-projects:hover
 {
     transform: scale(1.1);
     box-shadow: 2px 2px 400px white;
+}*/
+.my-projects:hover
+{
+ 
+    transform:scale(1.1);
+    box-shadow: 2px 2px 100px white;
 }
+
 
 /*resume*/
 #my-resume
