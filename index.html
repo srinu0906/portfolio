@@ -10,26 +10,28 @@
 </head>
 
 <body>
-    </div>
+
     <header>
-        <div class="nav-bar">
-            <a href="#home" class="logo">Srinu Vakada</a>
-
-            <a href="#contact" class="nav-items">Contact</a>
-            <a href="#resume" class="nav-items">Resume</a>
-            <a href="#projects" class="nav-items">Projects</a>
-            <a href="#skills" class="nav-items">Skills</a>
-            <a href="#about" class="nav-items">About</a>
+        <h1 class="logo">Srinu Vakada</h1>
+        <div class="toggle-nav bar" id="toggle-nav" onclick="toggleNav()">☰</div>
+        <nav class="nav-bar show" id="nav-bar">
             <a href="#home" class="nav-items">Home</a>
+            <a href="#about" class="nav-items">About</a>
+            <a href="#skills" class="nav-items">Skills</a>
+            <a href="#projects" class="nav-items">Projects</a>
+            <a href="#resume" class="nav-items">Resume</a>
+            <a href="#contact" class="nav-items">Contact</a>
 
-        </div>
+        </nav>
     </header>
     <main>
 
         <div id="home" class="home" class="divsions">
-            <br>
-            <h2>Hello , I'm </h2>
-            <h1>Srinu Vakada</h1>
+            <h2>Hello, I'm </h2>
+            <div>
+                <h1 class="srinu">Srinu&nbsp;</h1>
+                <h1 class="vakada"> Vakada</h1><br>
+            </div>
             <p>Student | Programmer | Web Developer</p>
         </div>
 
@@ -38,151 +40,312 @@
             <div class="bio">
                 <img src="images/profile.jpg" alt="Srinu">
                 <p>My name is Srinu Vakada, a Computer Science Engineering undergraduate from Gudlavalleru Engineering
-                    College. I have 8.8 CGPA. Apart from the ciriculum I have very deep intrest in programming and I
-                    have been actively learning Web Development</p>
+                    College. I have 8.9 CGPA. Apart from the ciriculum I have very deep intrest in programming and I
+                    have
+                    been actively learning Web Development</p>
             </div>
             <div class="profiles">
-                <section>
+                <div>
                     <a href="https://www.linkedin.com/in/srinu-vakada-84b690275/"><img src="images/ln.jpg"
-                            alt="linkedin"></a><a href="https://www.linkedin.com/in/srinu-vakada-84b690275/">
-                        <h3>Linkedin</h3>
+                            alt="linkedin"></a>
+                    <a href="https://www.linkedin.com/in/srinu-vakada-84b690275/">
+                        <h3 class="link-name">Linkedin</h3>
                     </a>
-                </section>
-                <section>
+                </div>
+
+                <div>
                     <a href="https://www.hackerrank.com/profile/vakadasrinu24"><img src="images/hr.jpg"
-                            alt="hackerrank"></a> <a href="https://www.hackerrank.com/profile/vakadasrinu24">
-                        <h3>Hackerrank</h3>
+                            alt="hackerrank"></a>
+                    <a href="https://www.hackerrank.com/profile/vakadasrinu24">
+                        <h3 class="link-name">Hackerrank</h3>
                     </a>
-                </section>
-                <section>
-                    <a href="https://github.com/srinu0906"><img src="images/git.jpg" alt="github"></a><a
-                        href="https://github.com/srinu0906">
-                        <h3>Github</h3>
+                </div>
+
+                <div>
+                    <a href="https://github.com/srinu0906"><img src="images/git.jpg" alt="github"></a>
+                    <a href="https://github.com/srinu0906">
+                        <h3 class="link-name">Github</h3>
                     </a>
-                </section>
+                </div>
             </div>
         </div>
 
         <div id="skills" class="skills">
             <h1 class="headings">My Skills</h1>
-            <div class="skills-box">
-                <div id="html" class="my-skills">
-                    <p>HTML</p><img src="images/html.png" alt="html">
+            <div class="skill-groups">
+                <div class="skill-box">
+                    <h3>Frontend</h3>
+                    <p>
+                    <ul>
+                        <li><img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat"
+                                alt="HTML"></li>
+                        <li> <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat"
+                                alt="CSS"></li>
+                        <li><img src="https://img.shields.io/badge/-React-000000?logo=react&logoColor=61DAFB&style=flat"
+                                alt="React"></li>
+                    </ul>
+                    </p>
                 </div>
+                <div class="skill-box">
+                    <h3>Backend</h3>
+                    <p>
+                    <ul>
+                        <li><img src="https://img.shields.io/badge/-Node.js-000000?logo=node.js&logoColor=339933&style=flat"
+                                alt="Node.js"></li>
+                        <li><img src="https://img.shields.io/badge/-Express.js-000000?logo=express&logoColor=white&style=flat"
+                                alt="Express.js"></li>
+                        <li><img src="https://img.shields.io/badge/-PHP-000000?logo=php&logoColor=777BB4&style=flat"
+                                alt="PHP"></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="skill-box">
+                    <h3>Programming</h3>
+                    <p>
+                    <ul>
+                        <li><img src="https://img.shields.io/badge/-Java-000000?logo=openjdk&logoColor=ED8B00&style=flat"
+                                alt="Java"></li>
+                        <li><img src="https://img.shields.io/badge/-Python-000000?logo=python&logoColor=3776AB&style=flat"
+                                alt="Python"></li>
+                        <li><img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                alt="JavaScript"></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="skill-box">
+                    <h3>Databases</h3>
+                    <p>
+                    <ul>
+                        <li><img src="https://img.shields.io/badge/-SQL-000000?logo=sqlite&logoColor=4169E1&style=flat"
+                                alt="SQL"></li>
+                        <li><img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat"
+                                alt="MySQL"></li>
+                        <li><img src="https://img.shields.io/badge/-MongoDB-000000?logo=mongodb&logoColor=47A248&style=flat"
+                                alt="MongoDB"></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="skill-box">
+                    <h3>Tools</h3>
+                    <p>
+                    <ul>
+                        <li><img src="https://img.shields.io/badge/-Git-000000?logo=git&logoColor=F05032&style=flat"
+                                alt="Git"></li>
+                        <li><img src="https://img.shields.io/badge/-GitHub-000000?logo=github&logoColor=white&style=flat"
+                                alt="GitHub"></li>
+                        <li><img src="https://img.shields.io/badge/-VS%20Code-000000?logo=htmx&logoColor=007ACC&style=flat"
+                                alt="VSCode"></li>
 
-                <div id="css" class="my-skills">
-                    <p>CSS</p> <img src="images/css.png" alt="css">
+                    </ul>
+                    </p>
                 </div>
-
-                <div id="javascript" class="my-skills">
-                    <p>JavaScript</p> <img src="images/js.png" alt="js">
+                <div class="skill-box">
+                    <h3>Hosting</h3>
+                    <p>
+                    <ul>
+                        <li><img src="https://img.shields.io/badge/-GitHub%20Pages-000000?logo=github&logoColor=white&style=flat"
+                                alt="GitHub Pages"></li>
+                        <li><img src="https://img.shields.io/badge/-MongoDB%20Atlas-000000?logo=mongodb&logoColor=47A248&style=flat"
+                                alt="MongoDB Atlas"></li>
+                        <li><img src="https://img.shields.io/badge/-Vercel-000000?logo=vercel&logoColor=white&style=flat"
+                                alt="Vercel"></li>
+                    </ul>
+                    </p>
                 </div>
-
-                <div id="python" class="my-skills">
-                    <p>Python</p> <img src="images/python.png" alt="py">
-                </div>
-
-                <div id="dsa" class="my-skills">
-                    <p>Problem Solving </p><img src="images/dsa.png" alt="dsa">
-                </div>
-
-                <div id="java" class="my-skills">
-                    <p>Java</p> <img src="images/java.png" alt="java">
-                </div>
-
-                <div id="php" class="my-skills">
-                    <p>PHP</p> <img src="images/php.png" alt="php">
-                </div>
-                
-                <div id="mysql" class="my-skills">
-                    <p>MySQL</p> <img src="images/mysql.png" alt="mysql">
+                <div class="skill-box">
+                    <h3>Data Mining</h3>
+                    <p>
+                    <ul>
+                        <li><img src="https://img.shields.io/badge/-Orange-000000?logo=orange&logoColor=white&style=flat"
+                                alt="Orange"></li>
+                        <li><img src="https://img.shields.io/badge/-SSMS-000000?logo=ssms&logoColor=47A248&style=flat"
+                                alt="SSMS"></li>
+                        <li><img src="https://img.shields.io/badge/-SSAS-000000?logo=ssas&logoColor=white&style=flat"
+                                alt="SSAS"></li>
+                    </ul>
+                    </p>
                 </div>
             </div>
 
             <div id="projects" class="projects">
                 <h1 class="headings">Projects</h1>
+
                 <div class="projects-box">
-                    <div class="my-projects" id="csp">
-                        <div class="project-names">
-                            <a href="https://github.com/srinu0906/csp">
-                                <h2>CSP Focused Learning Web Application</h2>
-                            </a>
-                        </div>
+
+                    <div class="my-projects" id="order">
+                        <a href="https://github.com/srinu0906/csp">
+                            <h3>1. OrderOnTheGo - Online Food Ordering Platform</h3>
+                            <p>
+                                <img src="https://img.shields.io/badge/-MongoDB-000000?logo=mongodb&logoColor=47A248&style=flat"
+                                alt="MongoDB">
+                                <img src="https://img.shields.io/badge/-Express.js-000000?logo=express&logoColor=white&style=flat"
+                                alt="Express.js">
+                                <img src="https://img.shields.io/badge/-React-000000?logo=react&logoColor=61DAFB&style=flat"
+                                alt="React">
+                                <img src="https://img.shields.io/badge/-MongoDB%20Atlas-000000?logo=mongodb&logoColor=47A248&style=flat"
+                                alt="MongoDB Atlas">
+                        <img src="https://img.shields.io/badge/-Vercel-000000?logo=vercel&logoColor=white&style=flat"
+                                alt="Vercel">
+                                
+                            </p>
+                        </a>
                     </div>
+                    <div class="my-projects" id="dmp">
+                        <a href="https://github.com/srinu0906/data-mining-project">
+                            <h3>2. Student Acedemic Analysis using SSAS</h3>
+                            <p>
+                                <img src="https://img.shields.io/badge/-Orange-000000?logo=orange&logoColor=white&style=flat"
+                                alt="Orange">
+                        <img src="https://img.shields.io/badge/-SSMS-000000?logo=ssms&logoColor=47A248&style=flat"
+                                alt="SSMS">
+                        <img src="https://img.shields.io/badge/-SSAS-000000?logo=ssas&logoColor=white&style=flat"
+                                alt="SSAS">
+                                <img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat" alt="MySQL">
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="my-projects" id="csp">
+                        <a href="https://github.com/srinu0906/csp">
+                            <h3>3. CSP Focused Learning Web Application</h3>
+                            <p>
+                                <img src="https://img.shields.io/badge/-PHP-000000?logo=php&logoColor=777BB4&style=flat" alt="PHP"> 
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                alt="JavaScript">
+                                <img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat" alt="MySQL">
+                            </p>
+                        </a>
+                    </div>
+
                     <div class="my-projects" id="bingo">
-                        <div class="project-names">
                             <a href="https://srinu24bingo.infinityfreeapp.com">
-                                <h2>Bingo Game</h2>
+                                <h3>4. Bingo Game</h3>
+                                <p>
+                                <img src="https://img.shields.io/badge/-PHP-000000?logo=php&logoColor=777BB4&style=flat" alt="PHP"> 
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                alt="JavaScript">
+                                <img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat" alt="MySQL">
+                            </p>
                             </a>
-                        </div>
+                        
                     </div>
                     <div class="my-projects" id="landing-page">
-                        <div class="project-names">
+                        
                             <a href="https://github.com/srinu0906/CodSoft/tree/main/Landing%20page">
-                                <h2>Landing Page</h2>
+                                <h3>5. Landing Page</h3>
+                                 <p>
+                                
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                alt="JavaScript">
+                                
+                            </p>
                             </a>
-                        </div>
+                        
                     </div>
 
                     <div class="my-projects" id="calculator">
-                        <div class="project-names">
+                        
                             <a href="https://github.com/srinu0906/CodSoft/tree/main/Calculator">
-                                <h2>Calculator</h2>
+                                <h3>6. Calculator</h3>
+                                 <p>
+                                
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                alt="JavaScript">
+                                
+                            </p>
                             </a>
-                        </div>
+                       
                     </div>
                     <div class="my-projects" id="infix-convertor">
-                        <div class="project-names">
+                        
                             <a href="https://github.com/srinu0906/Infix-Converotor">
-                                <h2>Infix Convertor</h2>
+                                <h3>7. Infix Convertor</h3>
+                                 <p>
+                                
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                alt="JavaScript">
+                                
+                            </p>
                             </a>
-                        </div>
+                        
                     </div>
                     <div class="my-projects" id="tic-tac-toe">
-                        <div class="project-names">
+                    
                             <a href="https://github.com/srinu0906/Tic-Tac-Toe">
-                                <h2>Tic Tac Toe</h2>
+                                <h3>8. Tic Tac Toe</h3>
+                                 <p>
+                                
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                alt="JavaScript">
+                                
+                            </p>
                             </a>
-                        </div>
+                        
                     </div>
                     <div class="my-projects" id="rps">
-                        <div class="project-names">
+                       
                             <a href="https://github.com/srinu0906/Rock-Paer-Scissors-Game">
-                                <h2>Rock Paper Scissors</h2>
+                                <h3>9. Rock Paper Scissors</h3>
+                                <p>
+                                
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                alt="JavaScript">
+                                
+                            </p>
                             </a>
 
-                        </div>
+                        
                     </div>
-                    <div class="my-projects" id="personal-bio-page">
+                    <!-- <div class="my-projects" id="personal-bio-page">
                         <div class="project-names">
-                            <h2>Personal Bio Page</h2>
+                            <h3>10. Personal Bio Page</h3>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
             <div id="resume" class="resume">
                 <h1 class="headings">My Resume</h1>
-                <div id="my-resume">
+                <div class="my-resume">
                     <img src="images/resume.png"><br>
-                    <button><a href="images/resume.pdf">Download my Resume</a></button>
+                    <a href="images/resume.pdf"><button>Download my Resume</button></a>
                 </div>
             </div>
 
             <div id="contact" class="contact">
                 <h1 class="headings">Contact me</h1>
                 <div class="contact-me">
-                    <h3>Email Me : <a href="mailto:vakadasrinu24@gmail.com"> vakadasrinu24@gmail.com</a></h3>
+                    <div>
+                        <h3>
+                            Email : <a href="mailto:vakadasrinu24@gmail.com">vakadasrinu24@gmail.com</a>
+                        </h3>
+                    </div>
+                    <div>
+                        <h3>
+                            Linkedin : <a href="https://www.linkedin.com/in/srinu-vakada-84b690275/">www.linkedin.com/in/srinu-vakada-84b690275/</a>
+                        </h3>
+                    </div>
                 </div>
-            </div>
         </div>
+            
     </main>
-    <hr>
+ <hr>
     <footer>
-        <p>Srinu Vakada | follow me on :</p>
-        <a href="https://www.linkedin.com/in/srinu-vakada-84b690275/"><img src="images/ln.png" alt="linkedin"></a>
-        <a href="https://www.hackerrank.com/profile/vakadasrinu24"><img src="images/hr.png" alt="hackerrank"></a>
-        <a href="https://github.com/srinu0906"><img src="images/git.png" alt="github"></a>
+        <p>@Srinu Vakada 2025</p>
     </footer>
 </body>
 
