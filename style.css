@@ -1,356 +1,650 @@
-html
-{
-    scroll-behavior: smooth;
-}
-body
-{
-    background-color: rgb(15, 15, 15);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background-color: black; */
     color: white;
-    margin:0px;
-    font-family: sans-serif;
-    /*scroll-behavior: smooth;*/
-    
+    text-decoration: none;
+    box-sizing: border-box;
+     scroll-behavior: smooth;
+     scroll-padding-top: 10%;
 }
-.headings
-{
-    font-size: 5vh;
-    margin: 50px;
+
+body{
+    background-color: black;
 }
-.divisions
-{
-    padding-top:30px;
+
+.headings{
+    text-align: center;
+    padding: 5% 0%;
+    font-size: min(8vw,2rem);
+    font-weight: bolder;
+    text-shadow: 0px 0px 20px white;
 }
-/* header and nav- bar*/
-header
-{
-    padding:20px;
-    position: fixed;
-    top:0%;
+
+/* ============================= Header section ========================= */
+header {
     width: 100%;
-    backdrop-filter: blur(30px);
-}
-div{
-    scroll-margin-top:100px;
-}
-.nav-items
-{
-    display: block;
-    float: right;
-    padding-right: 50px;
-}
-
-.nav-bar .logo
-{
-    font-size: 20px;
-}
-.nav-bar a
-{
-    text-decoration: none;
-    color: #fff;
-}
-
-.home
-{
-    color: white;
-    text-align: center;
-    margin-top:50px;
-    background-image:url("images/background.jpeg") ;
-    background-size: cover;
-    height: 100dvh
-}
-
-.home h2
-{
-    font-size: 10vh;
-    animation-name: slide;
-    animation-duration: 2s;
-    animation-timing-function: ease;
-    animation-fill-mode: backwards;
-}
-.home h1
-{
-    font-size: 20vh;
-    animation-name: fadeIn;
-    animation-duration: 2s;
-    animation-timing-function: ease;
-    animation-fill-mode: backwards;
-
-}
-@keyframes slide {
-    from
-    {
-        padding-bottom: 100px;
-    }
-    to 
-    {
-        padding-bottom: 0px;
-    }
-}
-@keyframes fadeIn {
-    from
-    {
-        opacity: 0;
-    }
-    to 
-    {
-        opacity: 1;
-    }
-}
-.home p
-{
-    font-size: 5vh;
-}
-
-/*about */
-.about img
-{
-    height: 300px;
-    width: 300px;
-    border-radius: 150px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-.about p
-{
-    margin:50px;
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-style: italic;
-    height: auto;
-    width: auto;
-    border: 5px solid white;
-    border-radius: 10px;
-}
-.bio
-{
-    display: flex;
-    flex-direction: row;
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-.profiles img
-{
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-.profiles , .profiles section
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 5px;
-    border: 1px solid  rgb(15, 15, 15);
-}
-.profiles section:hover
-{
-    border:1px solid #ffffff65;
-    box-shadow: 2px 2px #ffffff65;
-    border-radius: 100px;
-}
-.profiles a
-{
-    text-decoration: none;
-    color: white;
-}
-
-/*skills*/
-.my-skills
-{
-    height:12vh;
-    width: 50vh;
-    border: 1px solid white;
-    border-radius: 10px;
-    margin: 50px;
-    padding-left: 20px;
-    text-align: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    transition: transform 0.5s ease;
-    box-shadow: 2px 2px white;
-}
-.my-skills img
-{
-    height: 80px;
-    width: 80px;
+    /* border: 1px solid red; */
+    position: fixed;
+    z-index: 10;
+    backdrop-filter: blur(50px);
 }
 
-.my-skills:hover
-{
-    transform: scale(1.1);
-    box-shadow: 4px 4px 20px wheat;
+header h1 {
+    padding: 20px;
+    /* border: 1px solid red; */
 }
-#javascript img, #dsa img
-{
-    height: 55px;
-    width: 55px;
-    padding: 10px;
-}
-.skills-box
-{
+
+header nav {
+    /* border: 1px solid red; */
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+    justify-content: space-between;
+    /* backdrop-filter: blur(150px); */
+}
+
+header nav a {
+    padding: 10px;
+    transition: 0.3s ease;
+    border-radius: 10px;
+    /* border: 1px solid red; */
+}
+
+header nav a:hover {
+    box-shadow: 0 0 20px white;
+    background-color: white;
+    color: black;
+}
+
+.toggle-nav {
+    display: none;
+    align-content: center;
+    font-size: 24px;
+    padding: 0px;
+}
+
+/* responsive css for small screens */
+@media screen and (max-width:800px) {
+    header {
+        display: grid;
+        grid-template-columns: 90% 10%;
+    }
+
+    header nav.nav-bar {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 75%;
+        left: 0%;
+        margin-left: 0px;
+        padding-bottom: 10px;
+        width: 100%;
+        z-index: 10;
+        background: linear-gradient(270deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7));
+
+    }
+
+    header nav.nav-bar.show {
+        animation: slideIn 0.4s ease forwards;
+    }
+
+
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(500%);
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    header nav.hide {
+        animation: slideOut 0.4s ease forwards;
+
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(500%);
+        }
+    }
+
+    .toggle-nav {
+        display: block;
+    }
+
+    .toggle-nav.bar {
+        animation: toggleBarAnimation 0.3s ease forwards;
+    }
+
+    .toggle-nav.cross {
+        animation: toggleCrossAnimation 0.3s ease forwards;
+    }
+
+    @keyframes toggleBarAnimation {
+        from {
+            transform: rotateX(0deg);
+        }
+
+        to {
+            transform: rotateX(180deg);
+        }
+    }
+
+    @keyframes toggleCrossAnimation {
+        from {
+            transform: rotateX(0deg);
+        }
+
+        to {
+            transform: rotateX(180deg);
+        }
+    }
+}
+
+/* ==================================================== */
+
+
+/* ========================main section================== */
+main {
+    position: relative;
+    top:10%;
+    width: 100%;
+    /* z-index: -1; */
+    background: black;
+}
+
+
+/* -------------Home------------------- */
+main .home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("images/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+main .home h1 {
+    font-weight: bolder;
+    font-size: 20vb;
+}
+
+main .home h2 {
+    font-weight: bolder;
+    font-size: 5vb;
+}
+
+main .home p {
+    font-weight: bolder;
+    font-size: 3vb;
+}
+
+main .home div {
+    display: flex;
     flex-wrap: wrap;
 }
 
-/*projects*/
-.projects-box
-{
-    display:flex;
+/* animations to slide the text left and right*/
+main .home div .srinu {
+    animation: leftSlide 3s ease forwards;
+}
+
+main .home div .vakada {
+    animation: rightSlide 3s ease forwards;
+}
+
+@keyframes leftSlide {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+        filter: blur(0.5rem);
+    }
+
+    70% {
+        transform: translateX(140%);
+        opacity: 100;
+        filter: blur(0);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes rightSlide {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+        filter: blur(0.5rem);
+    }
+
+    70% {
+        transform: translateX(-80%);
+        opacity: 100;
+        filter: blur(0);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width:800px) {
+
+    main .home {
+        align-items: flex-start;
+    }
+
+    main .home h1 {
+        font-size: 12vb;
+    }
+
+    main .home h2 {
+        font-size: 3vb;
+    }
+
+    main .home p {
+        font-size: 2vb;
+    }
+
+    main .home div .srinu {
+        animation: slideUp 2s ease forwards;
+    }
+
+    main .home div .vakada {
+        animation: slideDown 2s ease forwards;
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+            filter: blur(1rem);
+        }
+
+        70% {
+            transform: translateY(100%);
+            opacity: 100;
+            filter: blur(0);
+        }
+
+        100% {
+            transform: translateY(0);
+            
+        }
+    }
+
+    @keyframes slideDown {
+        0% {
+            transform: translateY(100%);
+            opacity: 0;
+            filter: blur(1rem);
+        }
+
+        70% {
+            transform: translateY(-100%);
+            opacity: 100;
+            filter: blur(0);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+}
+
+/* ------------------------------------------- */
+
+
+
+/* --------------About me section -------------*/
+
+.about {
+    /* display: flex;
+    flex-direction: column;
+    border: 1px solid red; */
+    width: 100%;
+}
+
+.about h1 {
+    padding: 20px 30px;
+    /* background:linear-gradient(90deg,black,gray,black,black); */
+}
+
+.about .bio {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
 }
-.my-projects
-{
-    height:400px;
-    width: 300px;
-    margin: 50px;
+
+.about .bio img {
+    padding: 5px;
+    height: 20%;
+    width: 20%;
+    border-radius: 150px;
+}
+
+.about .bio p {
+    padding: 5%;
+    width: 60%;
+    position: relative;
+    background-color: black;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px white;
+    
+}
+
+@media screen and (max-width:800px) {
+    .about .bio {
+        flex-direction: column;
+    }
+
+    .about .bio img {
+        margin: 5%;
+        height: 50%;
+        width: 50%;
+    }
+
+    .about .bio p {
+        margin: 5%;
+        padding: 10%;
+        width: 70%;
+    }
+}
+
+
+/* profile links */
+.profiles{
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    align-items: center;
+    gap:10%;
+    /* border: 1px solid red; */
+}
+.profiles div{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 0px 10px white;
+    background: black;
+    transition:  0.5s ease;
+    
+}
+
+.profiles div:hover{
+    transform: scale(1.1);
+    background:linear-gradient(90deg,black,grey);
+}
+
+.profiles div a img{
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width:800px) {
+    .profiles div{
+        display: inline;
+        padding: 0%;
+        border-radius: 20px;
+        background-color: gray;
+        box-shadow: 0px -1px 5px white;
+    }
+
+    .profiles div a img{
+    height: 40px;
+    width: 40px;
+    }
+    .profiles div a h3{
+        display: none;
+    }
+}
+/* ----------------------------------------------- */
+
+/* -----------------Skills ---------------------- */
+
+.skills h1{
+    padding: min(20px,5%);
+}
+
+.skills .skill-groups{
+    padding: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills .skill-groups .skill-box{
+    /* display: flex;
+    flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    border-radius: 20px;
+    width: max(20%, auto);
+    height: auto;
+    padding: 1% 5%;
+    margin-bottom: 5%;
+    box-shadow: 0px 0px 10px white;
+    transition: 0.5s ease;
+}
+
+@property --angle{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.skills .skill-groups .skill-box:hover{
+    transform: scale(1.2);
+    background:linear-gradient(var(--angle),black,grey);
+    animation: gradienAnimation 2s ease infinite;
+    box-shadow: 0px 0px 20px white;
+}
+
+/* .skills .skill-groups:hover .skill-box:not(:hover){
+    filter: blur(0.1rem);
+} */
+
+@keyframes gradienAnimation{
+    0%{
+        --angle: 0deg;
+    }
+    100%{
+        --angle: 360deg;
+    }
+    
+}
+
+.skills .skill-groups .skill-box h3{
+    text-align: center;
+    padding-bottom: 10px;
+    
+}
+
+.skills .skill-groups .skill-box ul li img{
+    height: auto;
+    width: auto;
+}
+
+.skills .skill-groups .skill-box ul {
+    list-style: none;
+}
+
+@media screen and (max-width:400px) {
+    .skills .skill-groups{
+        gap: 5%;
+    }
+
+    .skills .skill-groups .skill-box{
+        width: 80%;
+        padding: 5%;
+    }
+    
+}
+
+/* ------------------------------------------------ */
+
+
+/* ----------------Projects----------------------------- */
+.projects .projects-box .my-projects{
+    margin: 2%;
+    padding: 1.5%;
+    width: 35%;
+    box-shadow: 0px 0px 5px white;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    /* background:linear-gradient(90deg,grey,black); */
+}
+
+.projects .projects-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2%;
+}
+
+.projects .projects-box .my-projects a h3{
+    margin-bottom: 1%;
+}
+
+.projects .projects-box .my-projects a img{
+    height: auto;
+    width: auto;
+}
+
+@media screen and (max-width:800px) {
+    .projects .projects-box .my-projects{
+        width: 80%;
+        padding: 5%;
+        margin: 3%;
+    }
+}
+
+.projects .projects-box .my-projects:hover{
+    box-shadow: 0px 0px 20px white;
+    background:linear-gradient(var(--angle),black,grey,black);
+    animation: sideGradientAnim 1s ease forwards;
+}
+@keyframes sideGradientAnim {
+    0%{
+        --angle:90deg;
+    }
+    100%{
+        --angle:180deg;
+    }
+}
+/* ---------------------------------- */
+
+
+/* --------------Resume------------- */
+.resume .my-resume {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+    gap: 5%;
+}
+
+.resume .my-resume img{
+    height: 50%;
+    width: 30%;
+    margin: 5%;
+}
+
+.resume .my-resume a button{
+    height: 20%;
+    background-color: black;
+    padding: 2%;
     border-radius: 10px;
     border: 2px solid white;
-    transition: transform 0.5s ease;
-    align-content: end;
+    padding: 15px;
+    font-weight: bolder;
+    transition: 0.5s ease;
 }
-#csp
-{
-    background: url("images/csp.png") no-repeat center center;
-    background-size: cover;
-}
-#bingo
-{
-    background: url("images/bingo.png") no-repeat center center;
-    background-size: cover;
-}
-#landing-page
-{
-    background: url("images/landing-page.png") no-repeat center center;
-    background-size: cover;
-}
-#calculator
-{
-    background: url("images/calculator.png") no-repeat center center;
-    background-size: cover;
-}
-#infix-convertor
-{
-    background: url("images/infix-convertor.png") no-repeat center center;
-    background-size: cover;
-}
-#tic-tac-toe
-{
-    background: url("images/tic-tac-toe.png") no-repeat center center;
-    background-size: cover;
-}
-#rps
-{
-    background: url("images/rps.png") no-repeat center center;
-    background-size: cover;
-}
-#personal-bio-page
-{
-    background: url("images/personal-bio-page.png") no-repeat center center;
-    background-size: cover;
-}
-.project-names
-{
 
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
+.resume .my-resume a button:hover{
+    background-color: white;
+   color: black;
+   transform: scale(1.1);
+   box-shadow: 0px 0px 10px white;
+   
+}
+
+@media screen and (max-width:800px) {
+    .resume .my-resume {
+        flex-direction: column;
+    }
+    .resume .my-resume img{
+    width: 80%;
+    }
+}
+/* -------------------------------- */
+
+/* ----------------Contact me----------- */
+/* .contact .contact-me div h3 img{
+    height: 20px;
+} */
+.contact
+{
+    margin: 5% 0%;
+}
+.contact .contact-me{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    border-radius: 5px;
-
+    justify-content: center;
+    padding: 5% 0%;
 }
 
-.project-names a
-{
-    text-decoration: none;
-    color: white;
-}
-/*
-.my-projects:hover
-{
-    transform: scale(1.1);
-    box-shadow: 2px 2px 400px white;
-}*/
-.my-projects:hover
-{
- 
-    transform:scale(1.1);
-    box-shadow: 2px 2px 100px white;
+.contact .contact-me div{
+    background-color: rgba(128, 128, 128, 0.2);
+    border-radius: 10px;
+    margin: 1%;
+    padding: 2%;
+    /* width: 80% */
 }
 
+/* =============================================================== */
 
-/*resume*/
-#my-resume
-{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 20px;
-    margin-top: 30px;
-}
-#my-resume img
-{
-    height: 500px;
-    width: 350px;
-}
-
-#my-resume button
-{
-    padding: 20px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.2);
-    transition: transform 0.5s ease;
-}
-#my-resume button:hover
-{
-    border: 2px solid white;
-    transform: scale(1.1);
-}
-#my-resume button a
-{
-    text-decoration: none;
-    color: white;
-}
-
-/*contact */
-.contact-me
-{
+/* =================Footer====================== */
+footer{
+    padding: 3% 0%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px;
-    margin: 100px;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 100px;
+    font-weight: bolder;
 }
-
-.contact-me h3 a
-{
-    text-decoration: none;
-    color: #fff;
-}
-.contact-me h3 a:hover
-{
-    color: blue;
-}
-/*footer*/
-footer
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-}
-footer img
-{
-    height: 15px;
-    width: 15px;
-    margin: 5px;
+@media screen and (max-width:800px) {
+    footer{
+        padding: 5% 0%;
+    }
 }
