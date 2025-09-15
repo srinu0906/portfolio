@@ -5,8 +5,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srinu Vakada Portfolio</title>
-    <link rel="stylesheet" href="style1.css">
-    <script src="main1.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <style>
+        .splide {
+            /* max-width: 900px; */
+            width: 75%;
+            margin: 50px auto;
+            /* border: 2px solid white; */
+            box-shadow: 0px 0px 10px white;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .splide__slide {
+            height: 400px;
+            /* height: auto; */
+            /* width: 40%; */
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            margin: 2%;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        .slide-caption h2 {
+            margin: 0;
+            font-size: 1.5rem;
+
+        }
+
+        /* Pagination container */
+        .splide__pagination {
+            margin-top: 1rem;
+            /* space below carousel */
+            position: relative;
+            /* keep it below carousel */
+            bottom: 0;
+            counter-reset: pagination-num;
+        }
+
+        /* Pagination buttons */
+        .splide__pagination__page {
+            width: 20px;
+            /* size of pagination button */
+            height: 20px;
+            margin: 0 6px;
+            /* spacing between them */
+            font-size: 14px;
+            /* text/number size */
+            border-radius: 50%;
+            background: #666;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        /* Active page style */
+        .splide__pagination__page.is-active {
+            background: #fff;
+            color: #000;
+            transform: scale(1.2);
+        }
+
+        .splide__pagination__page:before {
+            counter-increment: pagination-num;
+            content: counter(pagination-num);
+        }
+
+        @media (max-width: 768px) {
+            .splide__pagination__page {
+                width: 18px;
+                height: 18px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .splide__pagination__page {
+                width: 14px;
+                height: 14px;
+                font-size: 10px;
+            }
+
+            .splide {
+                /* max-width: 900px; */
+                width: 100%;
+                margin: 50px auto;
+                box-shadow:none
+            }
+
+            .splide__slide {
+                margin: 0%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -169,24 +277,130 @@
 
             <div id="projects" class="projects">
                 <h1 class="headings">Projects</h1>
+                <div class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list" id="carousel-container"></ul>
+                    </div>
+                </div>
 
+                <!-- Splide JS -->
+                <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+                <script>
+                    // Projects data
+                    const projects = [
+                        {
+                            name: "1. OrderOnTheGo - Online Food Ordering Platform",
+                            image: "images/order-on-the-go.png",
+                            details: "A MERN-based food ordering platform."
+                        },
+                        {
+                            name: "2. Student Acedemic Analysis using SSAS",
+                            image: "images/dm-project.jpeg",
+                            details: "A PHP + JS web app for focus-based student learning."
+                        },
+                        {
+                            name: "3. CSP Focused Learning Web Application",
+                            image: "images/csp.png",
+                            details: "OLAP-based analysis of student performance."
+                        },
+                        {
+                            name: "4. Bingo Game",
+                            image: "images/bingo.png",
+                            details: "A simple bingo game built with PHP and JavaScript."
+                        },
+                        {
+                            name: "5. Landing Page",
+                            image: "images/landing-page.png",
+                            details: "A responsive landing page using HTML, CSS, and JavaScript."
+                        },
+                        {
+                            name: "6. Calculator",
+                            image: "images/calculator.png",
+                            details: "A web-based calculator application."
+                        },
+                        {
+                            name: "7. Infix Convertor",
+                            image: "images/infix-convertor.png",
+                            details: "A tool to convert infix expressions to postfix."
+                        },
+                        {
+                            name: "8. Rock Paper Scissors",
+                            image: "images/rps.png",
+                            details: "A fun Rock Paper Scissors game using HTML, CSS, and JavaScript."
+                        },
+                        {
+                            name: "9. Tic Tac Toe",
+                            image: "images/tic-tac-toe.png",
+                            details: "A classic Tic Tac Toe game implemented in JavaScript."
+                        }
+
+                    ];
+
+                    // Dynamically create slides
+                    const container = document.getElementById('carousel-container');
+                    projects.forEach((project) => {
+                        const slide = document.createElement('li');
+                        slide.classList.add('splide__slide');
+                        slide.style.backgroundImage = `url(${project.image})`;
+                        slide.style.backgroundSize = "cover";
+                        slide.style.backgroundPosition = "center";
+
+                        slide.innerHTML = `
+        <div class="slide-caption">
+          <h2>${project.name}</h2>
+        </div>
+      `;
+                        container.appendChild(slide);
+                    });
+
+
+                    // Initialize Splide
+                    window.addEventListener('load', () => {
+                        new Splide('.splide', {
+                            type: 'loop',
+                            speed: 800,
+                            autoplay: true,
+                            interval: 2000,
+                            pauseOnHover: true,
+                            pagination: true,
+                            arrows: true,
+                            padding: '15rem',
+                            breakpoints: {
+                                1024: {   // Tablets / small laptops
+                                    padding: '4rem',
+                                    gap: '0.5rem',
+                                },
+                                768: {    // Tablets portrait / big phones
+                                    padding: '2rem',
+                                    perPage: 1,
+                                    gap: '0.5rem',
+                                },
+                                480: {    // Small phones
+                                    padding: '1rem',
+                                    perPage: 1,
+                                    arrows: false,  // hide arrows on tiny screens
+                                }
+                            }
+                        }).mount();
+                    });
+                </script>
                 <div class="projects-box">
 
                     <div class="my-projects" id="order">
-                        <a href="https://github.com/srinu0906/csp">
+                        <a href="https://github.com/srinu0906/OrderOnTheGo-mern-stack-internship-project">
                             <h3>1. OrderOnTheGo - Online Food Ordering Platform</h3>
                             <p>
                                 <img src="https://img.shields.io/badge/-MongoDB-000000?logo=mongodb&logoColor=47A248&style=flat"
-                                alt="MongoDB">
+                                    alt="MongoDB">
                                 <img src="https://img.shields.io/badge/-Express.js-000000?logo=express&logoColor=white&style=flat"
-                                alt="Express.js">
+                                    alt="Express.js">
                                 <img src="https://img.shields.io/badge/-React-000000?logo=react&logoColor=61DAFB&style=flat"
-                                alt="React">
+                                    alt="React">
                                 <img src="https://img.shields.io/badge/-MongoDB%20Atlas-000000?logo=mongodb&logoColor=47A248&style=flat"
-                                alt="MongoDB Atlas">
-                        <img src="https://img.shields.io/badge/-Vercel-000000?logo=vercel&logoColor=white&style=flat"
-                                alt="Vercel">
-                                
+                                    alt="MongoDB Atlas">
+                                <img src="https://img.shields.io/badge/-Vercel-000000?logo=vercel&logoColor=white&style=flat"
+                                    alt="Vercel">
+
                             </p>
                         </a>
                     </div>
@@ -195,12 +409,13 @@
                             <h3>2. Student Acedemic Analysis using SSAS</h3>
                             <p>
                                 <img src="https://img.shields.io/badge/-Orange-000000?logo=orange&logoColor=white&style=flat"
-                                alt="Orange">
-                        <img src="https://img.shields.io/badge/-SSMS-000000?logo=ssms&logoColor=47A248&style=flat"
-                                alt="SSMS">
-                        <img src="https://img.shields.io/badge/-SSAS-000000?logo=ssas&logoColor=white&style=flat"
-                                alt="SSAS">
-                                <img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat" alt="MySQL">
+                                    alt="Orange">
+                                <img src="https://img.shields.io/badge/-SSMS-000000?logo=ssms&logoColor=47A248&style=flat"
+                                    alt="SSMS">
+                                <img src="https://img.shields.io/badge/-SSAS-000000?logo=ssas&logoColor=white&style=flat"
+                                    alt="SSAS">
+                                <img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat"
+                                    alt="MySQL">
                             </p>
                         </a>
                     </div>
@@ -209,107 +424,126 @@
                         <a href="https://github.com/srinu0906/csp">
                             <h3>3. CSP Focused Learning Web Application</h3>
                             <p>
-                                <img src="https://img.shields.io/badge/-PHP-000000?logo=php&logoColor=777BB4&style=flat" alt="PHP"> 
-                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
-                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+                                <img src="https://img.shields.io/badge/-PHP-000000?logo=php&logoColor=777BB4&style=flat"
+                                    alt="PHP">
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat"
+                                    alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat"
+                                    alt="CSS">
                                 <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
-                                alt="JavaScript">
-                                <img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat" alt="MySQL">
+                                    alt="JavaScript">
+                                <img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat"
+                                    alt="MySQL">
                             </p>
                         </a>
                     </div>
 
                     <div class="my-projects" id="bingo">
-                            <a href="https://srinu24bingo.infinityfreeapp.com">
-                                <h3>4. Bingo Game</h3>
-                                <p>
-                                <img src="https://img.shields.io/badge/-PHP-000000?logo=php&logoColor=777BB4&style=flat" alt="PHP"> 
-                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
-                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+                        <a href="https://srinu24bingo.infinityfreeapp.com">
+                            <h3>4. Bingo Game</h3>
+                            <p>
+                                <img src="https://img.shields.io/badge/-PHP-000000?logo=php&logoColor=777BB4&style=flat"
+                                    alt="PHP">
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat"
+                                    alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat"
+                                    alt="CSS">
                                 <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
-                                alt="JavaScript">
-                                <img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat" alt="MySQL">
+                                    alt="JavaScript">
+                                <img src="https://img.shields.io/badge/-MySQL-000000?logo=mysql&logoColor=4479A1&style=flat"
+                                    alt="MySQL">
                             </p>
-                            </a>
-                        
+                        </a>
+
                     </div>
                     <div class="my-projects" id="landing-page">
-                        
-                            <a href="https://github.com/srinu0906/CodSoft/tree/main/Landing%20page">
-                                <h3>5. Landing Page</h3>
-                                 <p>
-                                
-                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
-                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+
+                        <a href="https://github.com/srinu0906/CodSoft/tree/main/Landing%20page">
+                            <h3>5. Landing Page</h3>
+                            <p>
+
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat"
+                                    alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat"
+                                    alt="CSS">
                                 <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
-                                alt="JavaScript">
-                                
+                                    alt="JavaScript">
+
                             </p>
-                            </a>
-                        
+                        </a>
+
                     </div>
 
                     <div class="my-projects" id="calculator">
-                        
-                            <a href="https://github.com/srinu0906/CodSoft/tree/main/Calculator">
-                                <h3>6. Calculator</h3>
-                                 <p>
-                                
-                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
-                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+
+                        <a href="https://github.com/srinu0906/CodSoft/tree/main/Calculator">
+                            <h3>6. Calculator</h3>
+                            <p>
+
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat"
+                                    alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat"
+                                    alt="CSS">
                                 <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
-                                alt="JavaScript">
-                                
+                                    alt="JavaScript">
+
                             </p>
-                            </a>
-                       
+                        </a>
+
                     </div>
                     <div class="my-projects" id="infix-convertor">
-                        
-                            <a href="https://github.com/srinu0906/Infix-Converotor">
-                                <h3>7. Infix Convertor</h3>
-                                 <p>
-                                
-                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
-                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
+
+                        <a href="https://github.com/srinu0906/Infix-Converotor">
+                            <h3>7. Infix Convertor</h3>
+                            <p>
+
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat"
+                                    alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat"
+                                    alt="CSS">
                                 <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
-                                alt="JavaScript">
-                                
+                                    alt="JavaScript">
+
                             </p>
-                            </a>
-                        
-                    </div>
-                    <div class="my-projects" id="tic-tac-toe">
-                    
-                            <a href="https://github.com/srinu0906/Tic-Tac-Toe">
-                                <h3>8. Tic Tac Toe</h3>
-                                 <p>
-                                
-                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
-                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
-                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
-                                alt="JavaScript">
-                                
-                            </p>
-                            </a>
-                        
+                        </a>
+
                     </div>
                     <div class="my-projects" id="rps">
-                       
-                            <a href="https://github.com/srinu0906/Rock-Paer-Scissors-Game">
-                                <h3>9. Rock Paper Scissors</h3>
-                                <p>
-                                
-                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat" alt="HTML">
-                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat" alt="CSS">
-                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
-                                alt="JavaScript">
-                                
-                            </p>
-                            </a>
 
-                        
+                        <a href="https://github.com/srinu0906/Rock-Paer-Scissors-Game">
+                            <h3>8. Rock Paper Scissors</h3>
+                            <p>
+
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat"
+                                    alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat"
+                                    alt="CSS">
+                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                    alt="JavaScript">
+
+                            </p>
+                        </a>
+
+
                     </div>
+                    <div class="my-projects" id="tic-tac-toe">
+
+                        <a href="https://github.com/srinu0906/Tic-Tac-Toe">
+                            <h3>9. Tic Tac Toe</h3>
+                            <p>
+
+                                <img src="https://img.shields.io/badge/-HTML5-000000?logo=html5&logoColor=E34F26&style=flat"
+                                    alt="HTML">
+                                <img src="https://img.shields.io/badge/-CSS3-000000?logo=css&logoColor=1572B6&style=flat"
+                                    alt="CSS">
+                                <img src="https://img.shields.io/badge/-JavaScript-000000?logo=javascript&logoColor=F7DF1E&style=flat"
+                                    alt="JavaScript">
+
+                            </p>
+                        </a>
+
+                    </div>
+
                     <!-- <div class="my-projects" id="personal-bio-page">
                         <div class="project-names">
                             <h3>10. Personal Bio Page</h3>
@@ -336,18 +570,18 @@
                     </div>
                     <div>
                         <h3>
-                            Linkedin : <a href="https://www.linkedin.com/in/srinu-vakada-84b690275/">www.linkedin.com/in/srinu-vakada-84b690275/</a>
+                            Linkedin : <a
+                                href="https://www.linkedin.com/in/srinu-vakada-84b690275/">www.linkedin.com/in/srinu-vakada-84b690275/</a>
                         </h3>
                     </div>
                 </div>
-        </div>
-            
+            </div>
+
     </main>
- <hr>
+    <hr>
     <footer>
         <p>@Srinu Vakada 2025</p>
     </footer>
 </body>
 
 </html>
-
